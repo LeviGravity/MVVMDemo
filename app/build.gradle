@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion project.compileSdkVersion
+  defaultConfig {
+    applicationId "autogravity.com.mvvmdemo"
+    minSdkVersion project.minSdkVersion
+    targetSdkVersion project.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+  // Testing
+  testImplementation "junit:junit:$project.junitVersion"
+  testImplementation "org.mockito:mockito-core:$project.mockitoVersion"
+  androidTestImplementation "com.android.support.test.espresso:espresso-core:$project.espressoVersion"
+  androidTestImplementation "com.android.support.test:runner:$project.runnerVersion"
+
+  // Kotlin
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  // Android Support Library
+  implementation supportLibrary.appcompat
+  implementation supportLibrary.design
+  implementation supportLibrary.recyclerview
+  implementation supportLibrary.cardView
+  implementation supportLibrary.support
+  implementation supportLibrary.gridlayout
+  implementation supportLibrary.vectorDrawable
+
+  // Google Play Services
+  implementation playServices.location
+  implementation playServices.maps
+  implementation playServices.places
+
+  // Lifecycle (ViewModel & LiveData)
+  implementation lifeCycle.runtime
+  implementation lifeCycle.extensions
+  annotationProcessor lifeCycle.compiler
+  testImplementation lifeCycle.test
+
+  // Room
+  implementation "android.arch.persistence.room:runtime:$project.roomVersion"
+  annotationProcessor "android.arch.persistence.room:compiler:$project.roomVersion"
+
+  // Dagger
+  implementation dagger.dagger
+  kapt dagger.compiler
+
+  // Retrofit
+  implementation retrofit.retrofit
+  implementation retrofit.gsonConverter
+  implementation retrofit.rxjava2Adapter
+  implementation "com.google.code.gson:gson:$project.gsonVersion"
+
+  // Okhttp
+  implementation okhttp.okhttp
+  implementation okhttp.loggingInterceptor
+
+  // RxJava
+  implementation rxjava.rxjava
+  implementation rxjava.rxandroid
+
+  // Butterknife
+  implementation butterknife.butterknife
+  kapt butterknife.compiler
+
+  // Glide
+  implementation 'com.github.bumptech.glide:glide:3.7.0'
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="@dimen/material_margin"
+    >
+
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="@dimen/user_photo_size"
+        android:layout_height="@dimen/user_photo_size"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/material_margin"
+        android:layout_marginRight="@dimen/material_margin"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/iv_photo"
+        android:layout_toRightOf="@+id/iv_photo"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="First, Last"
+            />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            tools:text="City, State"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
